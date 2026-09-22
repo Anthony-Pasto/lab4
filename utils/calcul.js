@@ -12,6 +12,8 @@ function calculerPrix(pizza, quantite, taille, ingredients) {
         prix = 11.10;
     }
 
+    let prixPizza= prix.toFixed(2);
+
     if (taille === "Grande") {
         prix *= 1.2;
     }
@@ -20,6 +22,7 @@ function calculerPrix(pizza, quantite, taille, ingredients) {
     }else if (taille === "Moyenne") {
         prix *= 1;
     }
+    
 
     // Exemple : 1,5$ par ingrédient supplémentaire
     if (ingredients) {
@@ -30,14 +33,17 @@ function calculerPrix(pizza, quantite, taille, ingredients) {
             prix += 1.5;
         }
     }
+    let prixIngredients = prix - prixPizza;
+    prixIngredients = prixIngredients.toFixed(2);
 
     prix = prix * Number(quantite);
 
+    let prixTotalAvantTaxes = prix.toFixed(2);
     prix *= 1.15; // Ajouter 15% de taxes
 
-    prix = prix.toFixed(2); // Arrondir à 2 décimales
-
-    return prix;
+    let prixTaxes = prix.toFixed(2);
+    let toutpris = {prixPizza, prixIngredients, prixTotalAvantTaxes, prixTaxes};
+    return toutpris;
 }
 
 module.exports = {

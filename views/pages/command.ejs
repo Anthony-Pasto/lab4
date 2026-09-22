@@ -1,25 +1,98 @@
 <h1>Résumé de la commande</h1>
 
-<p>Pizza : <%= pizza %></p>
-<p>Quantité : <%= quantite %></p>
-<p>Taille : <%= taille %></p>
-<p>Ingrédients : <%= ingredients %></p>
+<table>
+    <tbody>
+        <tr>
+            <th>Pizza</th>
+            <td><%= pizza %></td>
+            <td>
+                <%= toutpris.prixPizza %> $
+            </td>
+        </tr>
+
+        <tr>
+            <th>Taille</th>
+            <td><%= taille %></td>
+            <td>
+                <% if (taille === "petite") { %>
+                    x0.8
+                <% } else if (taille === "moyenne") { %>
+                    x1.0
+                <% } else if (taille === "grande") { %>
+                    x1.2
+                <% } %>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Ingrédients</th>
+            <td><%= ingredients %></td>
+            <td>
+                <%= toutpris.prixIngredients %> $
+            </td>
+        </tr>
+
+        <tr>
+            <th>Quantité</th>
+            <td><%= quantite %></td>
+        </tr>
+
+        <tr>
+            <th>Prix avant taxes</th>
+            <td>  </td>
+            <td><%= toutpris.prixTotalAvantTaxes %> $</td>
+        </tr>
+        <tr>
+            <th>Prix après taxes</th>
+            <td>  </td>
+            <td><%= toutpris.prixTaxes %> $</td>
+    </tbody>
+</table>
 
 <h2>Client</h2>
 
-<p>Nom : <%= nom %></p>
-<p>Prénom : <%= prenom %></p>
-<p>Adresse : <%= adresse %></p>
-<p>Code postal : <%= code_postal %></p>
-<p>Téléphone : <%= telephone %></p>
-<p>Courriel : <%= courriel %></p>
-<p>Paiement : <%= paiement %></p>
+<table>
+    <thead>
+        <tr>
+            <th>Information</th>
+            <th>Valeur</th>
+        </tr>
+    </thead>
 
+    <tbody>
+        <tr>
+            <th>Nom</th>
+            <td><%= nom %></td>
+        </tr>
 
-<h1>Résumé de la commande</h1>
+        <tr>
+            <th>Prénom</th>
+            <td><%= prenom %></td>
+        </tr>
 
-<p>Pizza : <%= pizza %></p>
-<p>Quantité : <%= quantite %></p>
-<p>Taille : <%= taille %></p>
+        <tr>
+            <th>Adresse</th>
+            <td><%= adresse %></td>
+        </tr>
 
-<h2>Prix total : <%= prixTotal %> $</h2>
+        <tr>
+            <th>Code postal</th>
+            <td><%= code_postal %></td>
+        </tr>
+
+        <tr>
+            <th>Téléphone</th>
+            <td><%= telephone %></td>
+        </tr>
+
+        <tr>
+            <th>Courriel</th>
+            <td><%= courriel %></td>
+        </tr>
+
+        <tr>
+            <th>Paiement</th>
+            <td><%= paiement %></td>
+        </tr>
+    </tbody>
+</table>

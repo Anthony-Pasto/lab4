@@ -5,7 +5,7 @@ const calcul = require("../utils/calcul");
 
 router.post("/resultat", (req, res) => {
 
-    const prixTotal = calcul.calculerPrix(
+      const toutpris = calcul.calculerPrix(
         req.body.pizza,
         req.body.quantite,
         req.body.taille,
@@ -24,7 +24,7 @@ router.post("/resultat", (req, res) => {
         telephone: req.body.telephone,
         courriel: req.body.courriel,
         paiement: req.body.paiement,
-        prixTotal: prixTotal
+        toutpris: toutpris
     });
 
 });
