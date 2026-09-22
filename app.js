@@ -1,12 +1,19 @@
 const express = require("express");
 const app = express();
 
+const PORT = 3000;
+
 app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
-    res.render("accueil");
-});
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 
-app.listen(3000, () => {
-    console.log("Serveur démarré sur le port http://localhost:3000");
+const indexRoutes = require("./routes/index");
+const resultatRoutes = require("./routes/resultat");
+
+app.use("/", indexRoutes);
+app.use("/", resultatRoutes);
+
+app.listen(PORT, () => {
+    console.log(`Serveur démarré sur http://localhost:${PORT}`);
 });

@@ -7,79 +7,144 @@
 </head>
 
 <body>
+
     <h1>Express</h1>
-    <p>QUEL TYPE DE PIZZA VOULEZ-VOUS ?</p>
-    <form>
-        <input type="radio" id="choix1" name="choix" value="1" required>
-        <label for="choix1">Hawaienne</label><br> 
 
-        <input type="radio" id="choix2" name="choix" value="2" required >
-        <label for="choix2">All Dressed</label><br>
+    <form action="/resultat" method="POST">
 
-        <input type="radio" id="choix3" name="choix" value="3" required>
-        <label for="choix3">Sicilienne</label><br>
+        <p>QUEL TYPE DE PIZZA VOULEZ-VOUS ?</p>
+
+        <input type="radio" id="pizza1" name="pizza" value="Hawaienne" required>
+        <label for="pizza1">Hawaienne</label><br>
+
+        <input type="radio" id="pizza2" name="pizza" value="All Dressed">
+        <label for="pizza2">All Dressed</label><br>
+
+        <input type="radio" id="pizza3" name="pizza" value="Sicilienne">
+        <label for="pizza3">Sicilienne</label><br>
+
+
+        <p>Quelle quantité ?</p>
+
+        <input
+            type="number"
+            name="quantite"
+            min="1"
+            max="99"
+            required
+            onblur="this.reportValidity()"
+        >
+
+
+        <p>Quelle taille ?</p>
+
+        <select id="taille" name="taille" required>
+            <option value="" disabled selected>Choisir une taille</option>
+            <option value="petite">Petite</option>
+            <option value="moyenne">Moyenne</option>
+            <option value="grande">Grande</option>
+        </select>
+
+
+        <p>Quel ingrédient supplémentaire ?</p>
+
+        <input type="checkbox" id="ingredient1" name="ingredients" value="pepperoni">
+        <label for="ingredient1">Pepperoni</label><br>
+
+        <input type="checkbox" id="ingredient2" name="ingredients" value="mozzarella">
+        <label for="ingredient2">Mozzarella</label><br>
+
+        <input type="checkbox" id="ingredient3" name="ingredients" value="oeuf">
+        <label for="ingredient3">Œuf</label><br>
+
+
+        <p>Quelle adresse ?</p>
+
+        <textarea
+            name="adresse"
+            required
+            onblur="this.reportValidity()"
+        ></textarea>
+
+
+        <p>Code postal ? Exemple : A1A 1A1</p>
+
+        <input
+            type="text"
+            name="code_postal"
+            pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]"
+            title="Format : A1A 1A1"
+            required
+            onblur="this.reportValidity()"
+        >
+
+
+        <p>Quel est votre nom ?</p>
+
+        <input
+            type="text"
+            name="nom"
+            pattern="[A-Za-zÀ-ÿ '-]+"
+            title="Lettres seulement"
+            required
+            onblur="this.reportValidity()"
+        >
+
+
+        <p>Quel est votre prénom ?</p>
+
+        <input
+            type="text"
+            name="prenom"
+            pattern="[A-Za-zÀ-ÿ '-]+"
+            title="Lettres seulement"
+            required
+            onblur="this.reportValidity()"
+        >
+
+
+        <p>Quel est votre numéro de téléphone ? Exemple : 514-123-4567</p>
+
+        <input
+            type="text"
+            name="telephone"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            title="Format : 514-123-4567"
+            required
+            onblur="this.reportValidity()"
+        >
+
+
+        <p>Quel est votre courriel ? Exemple : votre@email.com</p>
+
+        <input
+            type="email"
+            name="courriel"
+            required
+            onblur="this.reportValidity()"
+        >
+
+
+        <p>Quel est votre mode de paiement ?</p>
+
+        <select id="paiement" name="paiement" required>
+            <option value="" disabled selected>Choisir un mode de paiement</option>
+            <option value="Mastercard">Mastercard</option>
+            <option value="Visa">Visa</option>
+            <option value="PayPal">PayPal</option>
+            <option value="Interac">Interac</option>
+            <option value="American Express">American Express</option>
+            <option value="Apple Pay">Apple Pay</option>
+            <option value="Google Pay">Google Pay</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">
+            Confirmer ma commande
+        </button>
+
     </form>
-    <p> Quelle quantité ?</p>
-    <div class="mb-3">
-        <input type="number" name="quantite" class="form-control" pattern="[0-9]{1,2}" min="1" max="99">
-    </div>
 
-    <p> Quelle Taille ?</p>
-    <select id="taille" name="choix">
-        <option value="1">petite</option>
-        <option value="2">moyenne</option>
-        <option value="3">grande</option>
-    </select>
-    <p> Quelle ingrédient supplémentaire ?</p>
-    <form>
-        <input type="checkbox" id="choix1" name="choix" value="1">
-        <label for="choix1">pepperoni</label><br>
-
-        <input type="checkbox" id="choix2" name="choix" value="2">
-        <label for="choix2">mozzarella</label><br>
-
-        <input type="checkbox" id="choix3" name="choix" value="3">
-        <label for="choix3">oeuf</label><br>
-    </form>
-    <p> Quelle Adresse ?</p>
-    <div class="mb-3">
-        <textarea name="adresse" class="form-control"></textarea>
-    </div>
-    <p> Code Postal ? exemple : "A1A 1A1"</p>
-    <div class="mb-3">
-        <input type="text" name="code_postal" class="form-control" pattern="^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$" title="Format : A1A 1A1">
-    </div>
-    <p> Quel est votre nom?</p>
-    <div class="mb-3">
-        <input type="text" name="nom" class="form-control">
-    </div>
-    <p> Quel est votre prénom?</p>
-    <div class="mb-3">
-        <input type="text" name="prenom" class="form-control">
-    </div>
-    <p> Quel est votre numéro de téléphone? exemple : "514-123-4567"</p>
-    <div class="mb-3">
-        <input type="text" name="telephone" class="form-control" pattern="^\d{3}-\d{3}-\d{4}$" title="Format : 514-123-4567">
-    </div>
-    <p> Quelle est votre courriel? exemple : "votre@email.com"</p>
-    <div class="mb-3">
-        <input type="email" name="courriel" class="form-control">
-    </div>
-    <p> Quelle est votre mode de paiement? </p>
-    <select id="paiment" name="choix">
-        <option value="1">Mastercard</option>
-        <option value="2">Visa</option>
-        <option value="3">PayPal</option>
-        <option value="4">Interac</option>
-        <option value="5">American Express</option>
-        <option value="6">Apple Pay</option>
-        <option value="7">Google Pay</option>
-    </select>
-    <br>
-    <br>
-    <div>
-        <button type="submit" class="btn btn-primary">Confirmer ma commande</button>
-    </div>
 </body>
-
 </html>
