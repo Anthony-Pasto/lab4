@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+</head>
+
+<body>
+    <h1>Express</h1>
+    <p>QUEL TYPE DE PIZZA VOULEZ-VOUS ?</p>
+    <form>
+        <input type="radio" id="choix1" name="choix" value="1" required>
+        <label for="choix1">Hawaienne</label><br> 
+
+        <input type="radio" id="choix2" name="choix" value="2" required >
+        <label for="choix2">All Dressed</label><br>
+
+        <input type="radio" id="choix3" name="choix" value="3" required>
+        <label for="choix3">Sicilienne</label><br>
+    </form>
+    <p> Quelle quantité ?</p>
+    <div class="mb-3">
+        <input type="number" name="quantite" class="form-control" pattern="[0-9]{1,2}" min="1" max="99">
+    </div>
+
+    <p> Quelle Taille ?</p>
+    <select id="taille" name="choix">
+        <option value="1">petite</option>
+        <option value="2">moyenne</option>
+        <option value="3">grande</option>
+    </select>
+    <p> Quelle ingrédient supplémentaire ?</p>
+    <form>
+        <input type="checkbox" id="choix1" name="choix" value="1">
+        <label for="choix1">pepperoni</label><br>
+
+        <input type="checkbox" id="choix2" name="choix" value="2">
+        <label for="choix2">mozzarella</label><br>
+
+        <input type="checkbox" id="choix3" name="choix" value="3">
+        <label for="choix3">oeuf</label><br>
+    </form>
+    <p> Quelle Adresse ?</p>
+    <div class="mb-3">
+        <textarea name="adresse" class="form-control"></textarea>
+    </div>
+    <p> Code Postal ? exemple : "A1A 1A1"</p>
+    <div class="mb-3">
+        <input type="text" name="code_postal" class="form-control" pattern="^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$" title="Format : A1A 1A1">
+    </div>
+    <p> Quel est votre nom?</p>
+    <div class="mb-3">
+        <input type="text" name="nom" class="form-control">
+    </div>
+    <p> Quel est votre prénom?</p>
+    <div class="mb-3">
+        <input type="text" name="prenom" class="form-control">
+    </div>
+    <p> Quel est votre numéro de téléphone? exemple : "514-123-4567"</p>
+    <div class="mb-3">
+        <input type="text" name="telephone" class="form-control" pattern="^\d{3}-\d{3}-\d{4}$" title="Format : 514-123-4567">
+    </div>
+    <p> Quelle est votre courriel? exemple : "votre@email.com"</p>
+    <div class="mb-3">
+        <input type="email" name="courriel" class="form-control">
+    </div>
+    <p> Quelle est votre mode de paiement? </p>
+    <select id="paiment" name="choix">
+        <option value="1">Mastercard</option>
+        <option value="2">Visa</option>
+        <option value="3">PayPal</option>
+        <option value="4">Interac</option>
+        <option value="5">American Express</option>
+        <option value="6">Apple Pay</option>
+        <option value="7">Google Pay</option>
+    </select>
+    <br>
+    <br>
+    <div>
+        <button type="submit" class="btn btn-primary">Confirmer ma commande</button>
+    </div>
+</body>
+
+</html>
