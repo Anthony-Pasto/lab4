@@ -4,111 +4,349 @@
 <head>
     <meta charset="UTF-8">
     <title>Accueil</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
 </head>
 
-<body>
-    <%- include('../partials/header') %>
+<body class="bg-light">
 
-        <h1>Express</h1>
+<%- include('../partials/header') %>
 
-        <form action="/resultat" method="POST">
+<main class="container py-5">
 
-            <p>QUEL TYPE DE PIZZA VOULEZ-VOUS ?</p>
+    <div class="card shadow-lg border-0 rounded-4">
 
-            <input type="radio" id="pizza1" name="pizza" value="Hawaienne" required>
-            <label for="pizza1">Hawaienne</label><br>
+        <div class="card-body p-4 p-md-5">
 
-            <input type="radio" id="pizza2" name="pizza" value="All Dressed">
-            <label for="pizza2">All Dressed</label><br>
+            <h1 class="text-center mb-4">
+                Commander une pizza
+            </h1>
 
-            <input type="radio" id="pizza3" name="pizza" value="Sicilienne">
-            <label for="pizza3">Sicilienne</label><br>
+            <form action="/resultat" method="POST">
 
+                <!-- PIZZA -->
+                <div class="mb-4">
 
-            <p>Quelle quantité ?</p>
+                    <label class="form-label fw-bold">
+                        Quel type de pizza voulez-vous ?
+                    </label>
 
-            <input type="number" name="quantite" min="1" max="99" required onblur="this.reportValidity()">
+                    <div class="d-flex flex-wrap gap-2">
 
+                        <input class="btn-check"
+                               type="radio"
+                               id="pizza1"
+                               name="pizza"
+                               value="Hawaienne"
+                               required>
 
-            <p>Quelle taille ?</p>
-
-            <select id="taille" name="taille" required>
-                <option value="" disabled selected>Choisir une taille</option>
-                <option value="petite">Petite</option>
-                <option value="moyenne">Moyenne</option>
-                <option value="grande">Grande</option>
-            </select>
-
-
-            <p>Quel ingrédient supplémentaire ?</p>
-
-            <input type="checkbox" id="ingredient1" name="ingredients" value="pepperoni">
-            <label for="ingredient1">Pepperoni</label><br>
-
-            <input type="checkbox" id="ingredient2" name="ingredients" value="mozzarella">
-            <label for="ingredient2">Mozzarella</label><br>
-
-            <input type="checkbox" id="ingredient3" name="ingredients" value="oeuf">
-            <label for="ingredient3">Œuf</label><br>
+                        <label class="btn btn-outline-primary"
+                               for="pizza1">
+                            Hawaienne
+                        </label>
 
 
-            <p>Quelle adresse ?</p>
+                        <input class="btn-check"
+                               type="radio"
+                               id="pizza2"
+                               name="pizza"
+                               value="All Dressed">
 
-            <textarea name="adresse" required onblur="this.reportValidity()"></textarea>
-
-
-            <p>Code postal ? Exemple : A1A 1A1</p>
-
-            <input type="text" name="code_postal" pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]"
-                title="Format : A1A 1A1" required onblur="this.reportValidity()">
-
-
-            <p>Quel est votre nom ?</p>
-
-            <input type="text" name="nom" pattern="[A-Za-zÀ-ÿ '-]+" title="Lettres seulement" required
-                onblur="this.reportValidity()">
+                        <label class="btn btn-outline-primary"
+                               for="pizza2">
+                            All Dressed
+                        </label>
 
 
-            <p>Quel est votre prénom ?</p>
+                        <input class="btn-check"
+                               type="radio"
+                               id="pizza3"
+                               name="pizza"
+                               value="Sicilienne">
 
-            <input type="text" name="prenom" pattern="[A-Za-zÀ-ÿ '-]+" title="Lettres seulement" required
-                onblur="this.reportValidity()">
+                        <label class="btn btn-outline-primary"
+                               for="pizza3">
+                            Sicilienne
+                        </label>
+
+                    </div>
+
+                </div>
 
 
-            <p>Quel est votre numéro de téléphone ? Exemple : 514-123-4567</p>
+                <!-- QUANTITÉ -->
+                <div class="mb-4">
 
-            <input type="text" name="telephone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Format : 514-123-4567"
-                required onblur="this.reportValidity()">
+                    <label class="form-label fw-bold">
+                        Quelle quantité ?
+                    </label>
+
+                    <input
+                        class="form-control"
+                        type="number"
+                        name="quantite"
+                        min="1"
+                        max="99"
+                        required>
+
+                </div>
 
 
-            <p>Quel est votre courriel ? Exemple : votre@email.com</p>
+                <!-- TAILLE -->
+                <div class="mb-4">
 
-            <input type="email" name="courriel" required onblur="this.reportValidity()">
+                    <label class="form-label fw-bold">
+                        Quelle taille ?
+                    </label>
+
+                    <select
+                        class="form-select"
+                        id="taille"
+                        name="taille"
+                        required>
+
+                        <option value="" disabled selected>
+                            Choisir une taille
+                        </option>
+
+                        <option value="petite">Petite</option>
+                        <option value="moyenne">Moyenne</option>
+                        <option value="grande">Grande</option>
+
+                    </select>
+
+                </div>
 
 
-            <p>Quel est votre mode de paiement ?</p>
+                <!-- INGRÉDIENTS -->
+                <div class="mb-4">
 
-            <select id="paiement" name="paiement" required>
-                <option value="" disabled selected>Choisir un mode de paiement</option>
-                <option value="Mastercard">Mastercard</option>
-                <option value="Visa">Visa</option>
-                <option value="PayPal">PayPal</option>
-                <option value="Interac">Interac</option>
-                <option value="American Express">American Express</option>
-                <option value="Apple Pay">Apple Pay</option>
-                <option value="Google Pay">Google Pay</option>
-            </select>
+                    <label class="form-label fw-bold">
+                        Ingrédients supplémentaires
+                    </label>
 
-            <br><br>
+                    <div class="form-check">
 
-            <button type="submit">
-                Confirmer ma commande
-            </button>
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="ingredient1"
+                            name="ingredients"
+                            value="pepperoni">
 
-        </form>
+                        <label class="form-check-label" for="ingredient1">
+                            Pepperoni
+                        </label>
 
-        <%- include('../partials/footer') %>
+                    </div>
+
+
+                    <div class="form-check">
+
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="ingredient2"
+                            name="ingredients"
+                            value="mozzarella">
+
+                        <label class="form-check-label" for="ingredient2">
+                            Mozzarella
+                        </label>
+
+                    </div>
+
+
+                    <div class="form-check">
+
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="ingredient3"
+                            name="ingredients"
+                            value="oeuf">
+
+                        <label class="form-check-label" for="ingredient3">
+                            Œuf
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <hr class="my-4">
+
+
+                <h2 class="h4 mb-3">
+                    Informations de livraison
+                </h2>
+
+
+                <!-- ADRESSE -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Adresse
+                    </label>
+
+                    <textarea
+                        class="form-control"
+                        name="adresse"
+                        rows="3"
+                        required></textarea>
+
+                </div>
+
+
+                <!-- CODE POSTAL -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Code postal
+                    </label>
+
+                    <input
+                        class="form-control"
+                        type="text"
+                        name="code_postal"
+                        placeholder="A1A 1A1"
+                        pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]"
+                        title="Format : A1A 1A1"
+                        required>
+
+                </div>
+
+
+                <!-- NOM -->
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Nom
+                        </label>
+
+                        <input
+                            class="form-control"
+                            type="text"
+                            name="nom"
+                            pattern="[A-Za-zÀ-ÿ '-]+"
+                            title="Lettres seulement"
+                            required>
+
+                    </div>
+
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Prénom
+                        </label>
+
+                        <input
+                            class="form-control"
+                            type="text"
+                            name="prenom"
+                            pattern="[A-Za-zÀ-ÿ '-]+"
+                            title="Lettres seulement"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TÉLÉPHONE -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Téléphone
+                    </label>
+
+                    <input
+                        class="form-control"
+                        type="text"
+                        name="telephone"
+                        placeholder="514-123-4567"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                        title="Format : 514-123-4567"
+                        required>
+
+                </div>
+
+
+                <!-- COURRIEL -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Courriel
+                    </label>
+
+                    <input
+                        class="form-control"
+                        type="email"
+                        name="courriel"
+                        placeholder="votre@email.com"
+                        required>
+
+                </div>
+
+
+                <!-- PAIEMENT -->
+                <div class="mb-4">
+
+                    <label class="form-label">
+                        Mode de paiement
+                    </label>
+
+                    <select
+                        class="form-select"
+                        id="paiement"
+                        name="paiement"
+                        required>
+
+                        <option value="" disabled selected>
+                            Choisir un mode de paiement
+                        </option>
+
+                        <option value="Mastercard">Mastercard</option>
+                        <option value="Visa">Visa</option>
+                        <option value="PayPal">PayPal</option>
+                        <option value="Interac">Interac</option>
+                        <option value="American Express">American Express</option>
+                        <option value="Apple Pay">Apple Pay</option>
+                        <option value="Google Pay">Google Pay</option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- BOUTON -->
+                <div class="d-grid">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary btn-lg">
+
+                        Confirmer ma commande
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+<%- include('../partials/footer') %>
 
 </body>
 
