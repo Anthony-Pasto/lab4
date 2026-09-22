@@ -1,0 +1,17 @@
+[
+    {
+        "pizza": "All Dressed",
+        "quantite": "2",
+        "taille": "moyenne",
+        "ingredients": "mozzarella",
+        "adresse": "cxxvcx",
+        "code_postal": "a1a 1a1",
+        "nom": "asdda",
+        "prenom": "sdsd",
+        "telephone": "514-514-5555",
+        "courriel": "assd@asds",
+        "paiement": "Google Pay",
+        "prixTotal": "34.04",
+        "date": "2026-09-22 15 h 06"
+    }
+]

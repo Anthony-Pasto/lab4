@@ -1,0 +1,24 @@
+<!--
+    Auteur : Anthony Pasto
+    Date : 22 septembre 2026
+    Rôle : Permet de rechercher les commandes associées à un numéro de téléphone.
+-->
+<%- include('../partials/header') %>
+<h1>Historique des commandes</h1>
+
+<form action="/historique" method="POST">
+
+    <label>Numéro de téléphone</label>
+
+    <input
+        type="text"
+        name="telephone"
+        placeholder="514-123-4567"
+        required>
+
+    <button type="submit">
+        Rechercher
+    </button>
+
+</form>
+<%- include('../partials/footer') %>

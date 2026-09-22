@@ -1,3 +1,8 @@
+/*
+ * Auteur : Anthony Pasto
+ * Date : 22 septembre 2026
+ * Rôle : Calcule le prix de la pizza, des ingrédients et des taxes.
+ */
 function calculerPrix(pizza, quantite, taille, ingredients) {
 
     let prix = 0;
@@ -24,7 +29,7 @@ function calculerPrix(pizza, quantite, taille, ingredients) {
     }
     
 
-    // Exemple : 1,5$ par ingrédient supplémentaire
+    // Chaque ingrédient supplémentaire coûte 1,50 $.
     if (ingredients) {
         if (Array.isArray(ingredients)) {
             prix += ingredients.length * 1.5;
@@ -39,7 +44,8 @@ function calculerPrix(pizza, quantite, taille, ingredients) {
     prix = prix * Number(quantite);
 
     let prixTotalAvantTaxes = prix.toFixed(2);
-    prix *= 1.15; // Ajouter 15% de taxes
+    // Ajoute 15 % de taxes au prix avant taxes.
+    prix *= 1.15;
 
     let prixTaxes = prix.toFixed(2);
     let toutpris = {prixPizza, prixIngredients, prixTotalAvantTaxes, prixTaxes};
