@@ -1,14 +1,23 @@
 {
   "name": "labo4",
   "version": "1.0.0",
+  "description": "labo 4",
+  "keywords": [],
+  "homepage": "https://github.com/Anthony-Pasto/lab4#readme",
+  "bugs": {
+    "url": "https://github.com/Anthony-Pasto/lab4/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anthony-Pasto/lab4.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "ejs": "^6.0.1",
     "express": "^5.2.1"
